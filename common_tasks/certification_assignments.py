@@ -20,38 +20,29 @@ dashboards_suite_dict = {
     "Data Sources": 25,  # (suite)
     "URL Parameters": 22,  # (actions)
     "Side Panel": 3,  # 3 (suite)
-    # "L10N_I8N":
+    "AGOL New Features": 6,
+    "L10N_I8N": 6,
     "Arcade": 7,  # 7 (suite)
+    "One Offs": 7,
 }
 
 # 3x cert
 classic_suite_dict = {
-    "ArcGIS org Integration": 47,  # (suite)
-    "Home Page": 4,  # (suite)
+    "ArcGIS org Integration": 47,
+    "Home Page": 4,
     "Dashboard Level Settings": 15,
-    "Data Sources": 5,  # (suite)
-    "Indicator": 50,  # 7 (common) + 41 (suite)
-    "Rich Text Element": 4,  # 2 (common) + 2 (suite)
-    "Pie Chart": 8,  # (common)
-    "Details Element": 5,  # (common)
-    "Embedded Content": 5,  # (Common)
-    "ArcGIS Online New Features": 0,
-    "Side Panel": 3,  # (suite)
-    "Serial Chart": 35,  # 18 (suite) + 17 (Common)
-    "Gauge": 10,  # Common
-    "Legend Element": 2,  # common
-    "List": 5,  # (common)
-    "Map": 5,  # 3 (common actions) + 2 (Common)
-    "Selectors": 17,  # (common)
-    "One Offs": 0,
+    "Data Sources": 5,
+    "AGOL New Features": 3,
+    "One Offs": 11,
+    "3x Confidence": 72,
 }
 
-EMPLOYEES = 3
-suite_dict = classic_suite_dict
+EMPLOYEES = 2
+suite_dict = dashboards_suite_dict
 total_test_cases = sum(suite_dict.values())
 bins = binpacking.to_constant_bin_number(suite_dict, EMPLOYEES)
 
-print(f"There are a total of {total_test_cases} test cases")
+print(f"{total_test_cases} total test cases")
 for index, employee in enumerate(bins):
     print(f"\n Bucket {index} has {sum(employee.values())} tests")
     print(employee)
